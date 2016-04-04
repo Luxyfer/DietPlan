@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DietPlan</string>
+    <string name="MA_Toast_BigPass">Password só pode ter de  5 a 15 letras</string>
+    <string name="MA_Toast_BigUsername">Username só pode ter de 5 a 10 letras</string>
+</resources>
