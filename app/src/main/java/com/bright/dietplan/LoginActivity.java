@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         clearButton(etUsername);
         clearButton(etPassword);
 
+        //LOLDALKDaslkdalskdaslkd
 
     }
 
