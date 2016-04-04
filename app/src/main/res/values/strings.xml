@@ -2,5 +2,7 @@
     <string name="app_name">DietPlan</string>
     <string name="MA_Toast_BigPass">Password can only have 5 to 15 letters</string>
     <string name="MA_Toast_BigUsername">Username can only have 5 to 10 letters</string>
+    <string name="nome">Nome:</string>
+    <string name="fem">Feminino</string>
 
 </resources>
