@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         navDrawerItems.add(new DrawerItem(navMenuTitles[2], Icons.getResourceId(2, -1)));
         //List
         navDrawerItems.add(new DrawerItem(navMenuTitles[3], Icons.getResourceId(3, -1)));
+        //Profile
+        navDrawerItems.add(new DrawerItem(navMenuTitles[4], Icons.getResourceId(4, -1)));
         //Tag
         // Recycle the typed array
         Icons.recycle();
@@ -167,6 +169,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 4:
                 fragment = new RecipesFragment();
+                break;
+            case 5:
+                fragment = new User();
+                break;
             default:
                 break;
         }

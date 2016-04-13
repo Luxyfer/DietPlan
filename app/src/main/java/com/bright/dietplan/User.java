@@ -1,16 +1,17 @@
 package com.bright.dietplan;
 
-import android.provider.ContactsContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class User extends AppCompatActivity {
+public class User extends Fragment {
     DataBaseHelper db;
     EditText editnome, editdtnasc, editpeso;
     Button guardar;
@@ -18,34 +19,36 @@ public class User extends AppCompatActivity {
     public String sexo;
     CheckBox Cgluten, Clactose;
     public int gluten = 0, lactose = 0;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
-        db = new DataBaseHelper(this);
+        View rootView = inflater.inflate(R.layout.activity_user, container, false);
+        db = new DataBaseHelper(this.getActivity());
 
         //EditText
-        editnome =(EditText)findViewById(R.id.nome);
-        editdtnasc = (EditText)findViewById(R.id.dtnasc);
-        editpeso = (EditText)findViewById(R.id.peso);
+        editnome =(EditText) rootView.findViewById(R.id.nome);
+        editdtnasc = (EditText)rootView.findViewById(R.id.dtnasc);
+        editpeso = (EditText)rootView.findViewById(R.id.peso);
 
         //Botão
-        guardar = (Button)findViewById(R.id.Guardar);
+        guardar = (Button)rootView.findViewById(R.id.Guardar);
 
         //RadioButton
-        Rmasc = (RadioButton)findViewById(R.id.masc);
-        Rfem = (RadioButton) findViewById(R.id.fem);
+        Rmasc = (RadioButton)rootView.findViewById(R.id.masc);
+        Rfem = (RadioButton) rootView.findViewById(R.id.fem);
         if(Rmasc.isChecked())
             sexo = "masculino";
         else
             sexo = "feminino";
         //CheckBox
-        Cgluten = (CheckBox)findViewById(R.id.checkBox);
-        Clactose = (CheckBox)findViewById(R.id.checkBox2);
+        Cgluten = (CheckBox)rootView.findViewById(R.id.checkBox);
+        Clactose = (CheckBox)rootView.findViewById(R.id.checkBox2);
         if(Cgluten.isChecked())
             gluten = 1;
         if(Clactose.isChecked())
             lactose = 1;
+        return rootView;
     }
 
     public void OnClick(View v){
@@ -56,9 +59,9 @@ public class User extends AppCompatActivity {
                 gluten,
                 lactose);
         if(isInserted =true)
-            Toast.makeText(User.this, "Data Inserted", Toast.LENGTH_LONG).show();
+            Toast.makeText(User.this.getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(User.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+            Toast.makeText(User.this.getActivity(),"Data not Inserted",Toast.LENGTH_LONG).show();
     }
 
 }
