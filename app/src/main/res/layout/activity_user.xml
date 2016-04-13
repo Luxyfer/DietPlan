@@ -106,7 +106,7 @@
                 android:textColor="#000000"
                 android:textSize="30dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/editText" />
+                android:layout_below="@+id/peso" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberSigned"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/peso"
                 android:layout_alignTop="@+id/textView2"
                 android:layout_alignRight="@+id/dtnasc"
                 android:layout_alignEnd="@+id/dtnasc"
@@ -203,10 +203,22 @@
                 android:text="Tipo de Dieta:"
                 android:id="@+id/textView3"
                 android:layout_below="@+id/checkBox2"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
+                android:layout_alignLeft="@+id/peso"
+                android:layout_alignStart="@+id/peso"
                 android:textSize="25dp"
                 android:textColor="#000000" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar Perfil"
+                android:id="@+id/Guardar"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/radioGroup"
+                android:layout_alignEnd="@+id/radioGroup"
+                android:onClick="OnClick" />
 
         </RelativeLayout>
     </ScrollView>
