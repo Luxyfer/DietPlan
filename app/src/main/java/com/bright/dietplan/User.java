@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class User extends Fragment {
     DataBaseHelper db;
     EditText editnome, editdtnasc, editpeso;
@@ -19,7 +21,7 @@ public class User extends Fragment {
     public String sexo;
     CheckBox Cgluten, Clactose;
     public int gluten = 0, lactose = 0;
-
+    public ArrayList<Integer> pesos = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -31,8 +33,7 @@ public class User extends Fragment {
         editdtnasc = (EditText)rootView.findViewById(R.id.dtnasc);
         editpeso = (EditText)rootView.findViewById(R.id.peso);
 
-        //Botão
-        guardar = (Button)rootView.findViewById(R.id.Guardar);
+
 
         //RadioButton
         Rmasc = (RadioButton)rootView.findViewById(R.id.masc);
@@ -48,10 +49,21 @@ public class User extends Fragment {
             gluten = 1;
         if(Clactose.isChecked())
             lactose = 1;
+
+        //Botão
+        guardar = (Button)rootView.findViewById(R.id.Guardar);
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pesos.add(Integer.parseInt(editpeso.getText().toString()));
+            }
+        });
         return rootView;
     }
 
-    public void OnClick(View v){
+
+    /*public void OnClick(View v){
+        pesos.add(Integer.parseInt(editpeso.getText().toString()));
         boolean isInserted = db.insertData(editnome.getText().toString(),
                 editdtnasc.getText().toString(),
                 sexo,
@@ -62,6 +74,6 @@ public class User extends Fragment {
             Toast.makeText(User.this.getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
         else
             Toast.makeText(User.this.getActivity(),"Data not Inserted",Toast.LENGTH_LONG).show();
-    }
+    }*/
 
 }
